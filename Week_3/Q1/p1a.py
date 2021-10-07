@@ -7,15 +7,15 @@ try:
     records = dns.resolver.resolve(domain,'MX')
 
     print('\nMail exchange servers with their preferences are: \n')
-    print(" _______________________________________________")
-    print("| Preferennce  |           MX Record            |")
-    print("|--------------|--------------------------------|")
+    print(" ______________________________________________")
+    print("| Preference  |           MX Record            |")
+    print("|-------------|--------------------------------|")
     for record in records:
         r = str(record)
         l = r.split(' ',1)
-        print("| {:<11}  |  {:30}|".format(l[0],l[1]))
+        print("| {:<10}  |  {:30}|".format(l[0],l[1]))
     
-    print("|______________|________________________________|")
+    print("|_____________|________________________________|")
 
     print('\n')
 
