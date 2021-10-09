@@ -2,7 +2,7 @@ import socket
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-server = input("Enter website or IP address to scan: ")
+server = input("Enter remote host to scan: ")
 
 def portScan(port):
     try:
