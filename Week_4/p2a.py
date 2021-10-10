@@ -1,6 +1,7 @@
 import socket
 import threading
 from queue import Queue
+import time
 
 print_lock = threading.Lock()
 
@@ -29,10 +30,17 @@ for x in range(30):
     t.daemon = True
     t.start()
 
-start = input('\nInput starting port number: ')
-end = input('Input last port number: ')
+start = int(input('\nInput starting port number: '))
+end = int(input('Input last port number: '))
 
+start_time = time.time()
+
+print("\nPort Scanning.....")
 for worker in range(start,end+1):
     q.put(worker)
 
 q.join()
+
+end_time  = time.time()
+
+print("\nTime elapsed: ", end_time-start_time)
