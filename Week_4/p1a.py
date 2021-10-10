@@ -11,8 +11,16 @@ def portScan(port):
     except:
         return False
 
-for x in range(1,100):
+start = input('\nInput starting port number: ')
+end = input('Input last port number: ')
+flag = 0
+
+for x in range(start, end+1):
     if portScan(x):
         print('Port ',x, ' is open')
+        flag =1
     else:
-        print('Port ', x, ' is close')
+        pass
+
+if flag==0:
+    print('OOPS, no ports are open!')

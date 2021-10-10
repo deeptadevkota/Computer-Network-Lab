@@ -29,7 +29,10 @@ for x in range(30):
     t.daemon = True
     t.start()
 
-for worker in range(1,101):
+start = input('\nInput starting port number: ')
+end = input('Input last port number: ')
+
+for worker in range(start,end+1):
     q.put(worker)
 
 q.join()
