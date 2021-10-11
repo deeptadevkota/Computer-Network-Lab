@@ -19,7 +19,7 @@ flag = 0
 start_time = time.time()
 
 print("\nPort Scanning.....")
-for x in range(1, 100):
+for x in range(start, end+1):
     if portScan(x):
         print('Port ',x, ' is open')
         flag =1
