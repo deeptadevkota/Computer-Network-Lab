@@ -1,11 +1,10 @@
 import socket
 import time
 
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
-target = input("Enter remote host to scan: ")
+target = input("\nEnter remote host to scan: ")
 
 def portScan(port):
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     try:
         s.connect((target,port))
         return True
@@ -19,16 +18,14 @@ flag = 0
 start_time = time.time()
 
 print("\nPort Scanning.....")
-for x in range(1, 100):
+for x in range(start, end+1):
     if portScan(x):
         print('Port ',x, ' is open')
-        flag =1
-    else:
-        print('Port ',x, ' is closed')
+        flag = 1
 
 end_time  = time.time()
 
 if flag==0:
     print('OOPS, no ports are open!')
 
-print("Time elapsed: ", end_time-start_time)
+print("Time elapsed: ", end_time-start_time, "\n")
