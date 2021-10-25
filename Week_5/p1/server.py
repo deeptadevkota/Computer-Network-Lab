@@ -27,8 +27,8 @@ while True:
     if not client_certificate:
         raise Exception("\nUnable to get certificate from client")
     else:
-        print("Certificate of client ", address, " received")
+        print("\nCertificate of client ", address, " received")
+        print("Client name: ",secure_socket.recv(1024).decode())
         secure_socket.send(bytes('You now have a secured connection!','utf-8'))
     
     secure_socket.close()
-    

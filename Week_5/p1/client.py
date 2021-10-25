@@ -1,6 +1,8 @@
 import socket
 import ssl
 
+client_name = input("\nEnter name: ")
+
 client = socket.socket()
 
 context = ssl.SSLContext()
@@ -18,6 +20,7 @@ server_certficate = secure_socket.getpeercert()
 if not server_certficate:
     raise Exception("\nUnable to get certificate from server")
 else:
+    secure_socket.send(bytes(client_name,'utf-8'))
     print("\nConnected to server")
     print("Receiving..")
     print(secure_socket.recv(1024).decode())
