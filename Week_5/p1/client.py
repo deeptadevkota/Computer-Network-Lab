@@ -9,12 +9,9 @@ context = ssl.SSLContext()
 context.verify_mode = ssl.CERT_REQUIRED
 
 context.load_verify_locations("certificate/ca_cert.pem")
-
 context.load_cert_chain(certfile="certificate/client_cert.pem", keyfile="certificate/client_key.pem")
-
 secure_socket = context.wrap_socket(client)
 secure_socket.connect(("localhost",9999))
-
 server_certficate = secure_socket.getpeercert()
 
 if not server_certficate:
@@ -27,5 +24,4 @@ else:
 
 secure_socket.close()
 client.close()
-
 print("Connection closed!\n")
